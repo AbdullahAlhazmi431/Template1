@@ -1,10 +1,276 @@
-body{
+*{
     font-family: "Work Sans", sans-serif;
+    box-sizing: border-box;
+}
+ 
+:root{
+    font-size: 16px;
+    --main-color: rgb(18, 203, 186);
 }
 
-.fa-solid.fa-house{
-    margin: 15px;
+header{
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+.container{
+    /* background-color: aliceblue; */
+    margin-right: auto;
+    padding: 10px  ;
+    margin-left: auto;
+}
+
+header .menu{
+    position: relative;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .menu::before {
+    content: "";
+    position: absolute;
+    width: var(--hover-area-width,0px);
+    height: var(--hover-area-height,0px);
+    right: 0;
+}
+
+header .menu:hover {
+    --maxW: 100%;
+    --header-ul-visb: visible ;
+    --hover-area-width:100px;
+    --hover-area-height:60px;
+}
+
+
+header .logo{
+    width: 80px;
+    height: fit-content;
+}
+
+header ul {
+    padding: 0px;
+    position: absolute;
+    width: 200px;
+    right: 17px;
+    top: 23px;
+    list-style: none;
+    z-index: 10;
+    background-color: rgb(246, 246, 246);
+    visibility: var(--header-ul-visb,hidden);
+}
+
+
+header ul::before{
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: -11px;
+    border: 6px solid ;
+    border-color:  transparent transparent rgb(246, 246, 246) transparent  ;
+
+}
+
+header ul li {
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    border: 1px #ddd ;
+    border-bottom-style:solid ;
+    cursor: pointer;
+}
+
+header ul li:hover{
+    --list-item-move: 5px;
+}
+
+header ul a {
+    transition: 0.2s;
+    margin-left: var(--list-item-move);
+}
+
+header ul li:last-child {
+    display: flex;
+    align-items: center;
+    padding: 13px 16px;
+    border: none ;
+}
+
+header ul a {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header .menu-logo  {
+    display: inline-block;
+    width: 60px;
+    height: fit-content;
+    direction: rtl;
+    padding: 8px 8px 18px 8px;
+}
+
+header .menu-logo span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    /* height between lines */
+    margin-bottom: 2px;
+}
+/* first line */
+header .menu-logo span:nth-child(3) {
+    transform: translateY(6px);
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+/* second line */
+header .menu-logo span:nth-child(2) {
+    transform: translateY(3px);
+    height: 3px;
+    width: var(--maxW,60%);
+    transition: 0.5s;
+}
+
+/* third line */
+header .menu-logo span:nth-child(1) {
+    width: 100%;
+}
+
+
+/* Landing style */
+
+.landing{
+    height: calc(100vh - 63px);
+    background-size: 100%;
+    background-image: url(../imgs/pexels-pixabay-355747.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.landing .welcome-text{
+    position: absolute;
+    font-size: 25px;
+    white-space: nowrap;
+    line-height: 42px;
+    font-weight: bold;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+
+.landing .welcome-text h1 {
+    color: var(--main-color);
+    text-align: center;
+    font-size: 60px;
+}
+
+/* ending Landing style */
+
+/* start features section */
+.features{
+    margin: 40px 0px;
+}
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px , 1fr));
+    color: var(--main-color);
+    line-height: 30px;
+    gap: 60px;
+    text-align: center;
+}
+
+.features .container h2{
+    color: black;
+    text-transform: capitalize;
+}
+
+.features .container i {
     font-size: 50px;
-
-    font-size: 52px;
 }
+
+.features .container p {
+    width: 100%;
+}
+
+
+
+/* Media Qeuries */
+/* small Devices (small Phones) */
+@media (max-width: 576px) {
+    .landing .welcome-text h1 {
+        font-size: 30px;
+    }
+
+    .landing .welcome-text{
+        font-size: 15px;
+        line-height: 1.6em;
+    }
+}
+
+/* small Devices (Large Phones) */
+@media (min-width: 576px) {
+    .landing .welcome-text h1 {
+        font-size: 30px;
+    }
+
+    .landing .welcome-text{
+        font-size: 15px;
+        line-height: 1.6em;
+    }
+
+}
+
+/* Tablets */
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+  }
+
+/* Laptops */
+@media (min-width: 992px) {
+    .container {
+      width: 960px;
+    }
+    /* .features .container {
+        grid-template-columns: repeat(2,1fr);
+    } */
+  }
+  
+  /* Desktops */
+  @media (min-width: 1200px) {
+    .container {
+      width: 1140px;
+    }
+
+    .landing .welcome-text h1 {
+        font-size: 80px;
+    }
+
+    .landing .welcome-text{
+        font-size: 40px;
+        line-height: 1.6em;
+    }
+
+    /* .features .container {
+        grid-template-columns: repeat(3,1fr);
+    } */
+  }
+  
+  /* Large Screens / 4K */
+  @media (min-width: 1400px) {
+    .container {
+      width: 1320px;
+    }
+
+    /* .features .container {
+        grid-template-columns: repeat(3,1fr);
+    } */
+  }
+  
