@@ -100,7 +100,6 @@ header .links ul li a:hover{
 
 header .links:hover{
   --vis1: visible;
-
 }
 /* <!-- End header --> */
  /* <!-- Start Landing --> */
@@ -135,9 +134,8 @@ header .links:hover{
   }
   .feature .container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px ,1fr));
     gap: 20px;
-    
   } 
   .feature .container div{
     text-align: center;
@@ -227,8 +225,5 @@ header .links:hover{
 @media (min-width: 1400px) {
   .container {
     width: 1320px;
-  }
-    .Landing .Welcome-text{
-    font-size: 30px;
   }
 }
